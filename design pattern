@@ -1,0 +1,15 @@
+
+public class hiddenobject {
+    public static hiddenobject obj=null;
+
+    private hiddenobject(){
+    }
+    public static hiddenobject makeobj(){
+        if(obj==null){
+            obj=new hiddenobject();
+        }
+        return obj;
+    }
+
+
+}
