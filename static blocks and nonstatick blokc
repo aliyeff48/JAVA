@@ -1,0 +1,15 @@
+
+public class blocks {
+    static{
+        System.out.println("statik");
+    }
+    {
+        System.out.println("non static block");
+    }
+    blocks(){
+        System.out.println("contruktor is working");
+    }
+    {
+        System.out.println("2nd block");
+    }
+}
