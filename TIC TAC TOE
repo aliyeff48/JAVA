@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        char board[][]=new char[3][3];
+        for(int i=0;i<board.length;i++){
+            for(int col=0;col<board[0].length;col++){
+                board[i][col]=' ';
+
+            }}
+//her biri spacedir
+    char player='X';
+        boolean gameOver=false;
+        Scanner scanner=new Scanner(System.in);
+        while(!gameOver){
+           lovhenincapi(board);
+            System.out.println("Player "+player+" enter: ");
+            int row=scanner.nextInt();
+            int col=scanner.nextInt();
+            System.out.println();
+            if(board[row][col]==' '){
+                board[row][col]=player;
+                gameOver=qaliblikserti(board,player);
+
+            if (gameOver){
+                System.out.println("Player "+player+" has won: ");
+            }
+            else{
+                if(player=='X'){//oyuncu deyismek ucub
+                    player='O';
+
+                }
+                else{
+                    player='X';
+                }
+            }}
+            else{
+                System.out.println("Invalid move.Try again..");
+            }
+        }
+lovhenincapi(board);
+
+}
+    public static void lovhenincapi(char[][]lovhe){
+        for(int i=0;i<lovhe.length;i++){
+            for(int col=0;col<lovhe[0].length;col++){
+                System.out.print(lovhe[i][col]+" |");
+            }
+            System.out.println();}
+    }
+    public  static boolean qaliblikserti(char[][]lovhe,char oyuncu) {
+        //check row
+        for(int i=0;i<lovhe.length;i++){
+            if(lovhe[i][0]==oyuncu&&lovhe[i][1]==oyuncu&&lovhe[i][2]==oyuncu)   {
+                return true;//setirler duz olarsa
+            }
+        }
+        for(int col=0;col<lovhe.length;col++){
+            if(lovhe[0][col]==oyuncu&&lovhe[1][col]==oyuncu&&lovhe[2][col]==oyuncu)   {
+                return true;//sutnlar duz olarsa
+            }
+        }
+
+
+        if(lovhe[0][0]==oyuncu&&lovhe[1][1]==oyuncu&&lovhe[2][2]==oyuncu){
+            return true;//1.dioganal duz olarsa
+        }
+        if(lovhe[0][2]==oyuncu&&lovhe[1][1]==oyuncu&&lovhe[2][0]==oyuncu){
+            return true;//2.dioganal duz olarsa
+        }
+        return false;//eger hec birne girmese false olacaq dowr davam edecek
+    }
+}
