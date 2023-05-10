@@ -1,0 +1,8 @@
+public static String checkword(String s){
+
+    for(int i=0;i<s.length();i++){
+        System.out.println(s.charAt(i)+" ve "+s.charAt(s.length()-1-i));
+        if (s.charAt(i)!=s.charAt(s.length()-1-i)) return "eyni deyil";
+    }
+    return "eynidir";
+}
